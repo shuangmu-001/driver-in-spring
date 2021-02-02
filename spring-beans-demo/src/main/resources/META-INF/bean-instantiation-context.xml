@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1、通过静态方法实例化 -->
+    <bean id="user-by-static-method" class="org.thinking.in.spring.ioc.domain.User" factory-method="createUser"/>
+
+    <!-- 2、通过工厂方法实例化 -->
+    <bean id="user-by-factory-method" factory-bean="userFactory" factory-method="createUser"/>
+    <bean id="userFactory" class="org.thinking.in.spring.beans.factory.DefaultUserFactory"/>
+
+    <!-- 3、通过FactoryBean实例化 -->
+    <bean id="user-by-factory-bean" class="org.thinking.in.spring.beans.factory.UserFactoryBean"/>
+
+    <!-- 4、直接配置实例化 -->
+    <bean id="user" class="org.thinking.in.spring.ioc.domain.User">
+        <property name="age" value="18"/>
+        <property name="name" value="王岩"/>
+    </bean>
+
+</beans>

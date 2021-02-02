@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- root BeanDefinition RootBeanDefinition 没有 parent -->
+    <!-- 普通 BeanDefinition GenericBeanDefinition -->
+    <!-- 经过合并后 GenericBeanDefinition 变成 RootBeanDefinition -->
+    <bean id="user" class="org.thinking.in.spring.ioc.domain.User">
+        <property name="age" value="18"/>
+        <property name="name" value="王岩"/>
+        <property name="scores" value="11,22,-11,-98"/>
+        <property name="cities" value="HANGZHOU,BEIJING"/>
+    </bean>
+    <!-- 普通 BeanDefinition GenericBeanDefinition -->
+    <!-- 经过合并后 GenericBeanDefinition 变成 RootBeanDefinition 并且覆盖 parent 相关配置 -->
+    <!-- primary = true 增加address属性 -->
+    <bean id="superUser" class="org.thinking.in.spring.ioc.domain.SuperUser" parent="user" primary="true">
+        <property name="address" value="北京"/>
+    </bean>
+
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+
+</beans>
+
