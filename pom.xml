@@ -19,6 +19,7 @@
         <module>i18n-demo</module>
         <module>validation-demo</module>
         <module>data-binding</module>
+        <module>conversion-demo</module>
     </modules>
 
     <properties>

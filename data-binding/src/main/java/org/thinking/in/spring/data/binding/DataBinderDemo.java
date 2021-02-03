@@ -32,10 +32,13 @@ public class DataBinderDemo {
         map.put("company.name", "axt");
 
         PropertyValues propertyValues = new MutablePropertyValues(map);
+        
         // 调整 ignoreUnknownFields true（默认）-> false （报异常NotWritablePropertyException，sex不是user的属性）
         // dataBinder.setIgnoreUnknownFields(false);
+
         // 调整 autoGrowNestedPaths true（默认）-> false （报异常NullValueInNestedPathException，company没有创建）
         // dataBinder.setAutoGrowNestedPaths(false);
+
         // 调整 IgnoreInvalidFields false（默认）-> true （默认情况下调整不变化，需要调整 AutoGrowNestedPaths 为 false）
         // dataBinder.setIgnoreInvalidFields(true);
 
