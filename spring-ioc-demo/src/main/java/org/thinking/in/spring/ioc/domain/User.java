@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author wcl
@@ -23,21 +24,6 @@ public class User implements BeanNameAware {
     private Integer age;
 
     private Company company;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", company=" + company +
-                ", scores=" + Arrays.toString(scores) +
-                ", cities=" + Arrays.toString(cities) +
-                ", resource=" + resource +
-                ", map=" + map +
-                ", beanName='" + beanName + '\'' +
-                '}';
-    }
 
     public Company getCompany() {
         return company;
@@ -59,6 +45,25 @@ public class User implements BeanNameAware {
 
     private transient String beanName;
 
+    private Properties properties;
+
+    private String textByProperties;
+
+    public String getTextByProperties() {
+        return textByProperties;
+    }
+
+    public void setTextByProperties(String textByProperties) {
+        this.textByProperties = textByProperties;
+    }
+
+    public Properties getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Properties properties) {
+        this.properties = properties;
+    }
 
     public Long getId() {
         return id;
@@ -136,5 +141,22 @@ public class User implements BeanNameAware {
     @Override
     public void setBeanName(String name) {
         this.beanName = name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", company=" + company +
+                ", scores=" + Arrays.toString(scores) +
+                ", cities=" + Arrays.toString(cities) +
+                ", resource=" + resource +
+                ", map=" + map +
+                ", beanName='" + beanName + '\'' +
+                ", properties=" + properties +
+                ", textByProperties='" + textByProperties + '\'' +
+                '}';
     }
 }

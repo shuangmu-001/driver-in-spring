@@ -20,6 +20,7 @@
         <module>validation-demo</module>
         <module>data-binding</module>
         <module>conversion-demo</module>
+        <module>generic-demo</module>
     </modules>
 
     <properties>

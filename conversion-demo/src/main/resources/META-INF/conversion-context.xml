@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="properties">
+        <prop key="id">18</prop>
+        <prop key="name">wy</prop>
+    </util:properties>
+
+    <bean class="org.thinking.in.spring.conversion.CustomizedPropertyEditorRegistrar"/>
+    <!-- 名称必须是 conversionService -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="org.thinking.in.spring.conversion.PropertiesToStringConverter"/>
+        </property>
+    </bean>
+
+    <bean id="user" class="org.thinking.in.spring.ioc.domain.User">
+        <property name="age" value="18"/>
+        <property name="name" value="王岩"/>
+        <property name="scores" value="11,22,-11,-98"/>
+        <property name="properties">
+            <value>
+                id = 1
+                name = wy
+            </value>
+        </property>
+        <property name="textByProperties" ref="properties"/>
+    </bean>
+
+</beans>
+
