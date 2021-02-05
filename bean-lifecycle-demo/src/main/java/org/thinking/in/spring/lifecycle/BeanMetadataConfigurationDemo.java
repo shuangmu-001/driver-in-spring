@@ -31,30 +31,34 @@ public class BeanMetadataConfigurationDemo {
     }
 
     /**
-     * TODO 通过@Bean配置的BeanDefinition的class信息为null 为什么
-     * TODO Bean注解，相同的BeanName只会去注册一次，为什么？
+     * 通过@Bean配置的BeanDefinition的class信息为null 为什么
+     * 1、beanMethod的方法是静态的才会设置beanClass
      *
+     * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod(org.springframework.context.annotation.BeanMethod)
+     * <p>
+     * Bean注解，相同的BeanName只会去注册一次，为什么？
+     * 1、在相同的配置类里的BeanMethod 相同的BeanName只会去注册一次
+     * 2、在不相同的配置类里的BeanMethod 相同的BeanName会去注册多次
+     * @see org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod(org.springframework.context.annotation.BeanMethod)
+     * <p>
      * 相同BeanName 注册BeanDefinition 后者会替换调前者
-     * 如果BeanName 会执行 : this.beanDefinitionMap.put(beanName, beanDefinition);
+     * 如果BeanName相同 会执行 : this.beanDefinitionMap.put(beanName, beanDefinition);
      * @see DefaultListableBeanFactory#registerBeanDefinition(String, BeanDefinition)
      */
     @Bean
     public User hello() {
         return new User();
     }
-//
-//    @Bean("hello")
-//    public User world() {
-//        return new User();
-//    }
 
     private static void configBeanDefinitionByAnnotation() {
         System.out.println("---------------通过Annotation配置BeanDefinition-------------------");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.register(BeanMetadataConfigurationDemo.class);
+        context.register(BeanTest.class);
 //        context.scan("org.thinking.in.spring.ioc.domain");
         context.refresh();
         echoBeanDefinitionInfo(context);
+        System.out.println(context.getBeansOfType(User.class));
         context.close();
     }
 
