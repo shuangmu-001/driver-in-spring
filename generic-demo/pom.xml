@@ -12,8 +12,7 @@
     <artifactId>generic-demo</artifactId>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <spring.version>4.3.26.RELEASE</spring.version>
     </properties>
 
 </project>

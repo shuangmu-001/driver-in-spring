@@ -10,7 +10,7 @@ import org.thinking.in.spring.ioc.domain.User;
 
 /**
  * {@link BeanDefinition} 构建示例
- *
+ * TODO 什么时候由谁创建的BeanDefinition，什么时候注册到BeanFactory里面？
  * @author wcl
  * @date 3:09 下午 2020/6/10
  *
