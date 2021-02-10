@@ -63,7 +63,6 @@ public class GenericAPIDemo {
                 .forEach(System.out::println);
         System.out.println();
 
-
         TypeVariable[] typeParameters = A.class.getTypeParameters();
         Stream.of(typeParameters)
                 .forEach(System.out::println);

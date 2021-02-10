@@ -21,6 +21,7 @@
         <module>data-binding</module>
         <module>conversion-demo</module>
         <module>generic-demo</module>
+        <module>event-demo</module>
     </modules>
 
     <properties>
