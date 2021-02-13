@@ -11,8 +11,7 @@ public class MySpringEvent extends ApplicationEvent {
     /**
      * Create a new {@code ApplicationEvent}.
      *
-     * @param message the object on which the event initially occurred or with
-     *                which the event is associated (never {@code null})
+     * @param message 事件信息
      */
     public MySpringEvent(String message) {
         super(message);
