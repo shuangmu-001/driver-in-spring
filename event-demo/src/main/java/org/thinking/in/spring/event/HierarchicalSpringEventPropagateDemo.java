@@ -47,7 +47,8 @@ public class HierarchicalSpringEventPropagateDemo {
         @Override
         public void onApplicationEvent(ApplicationContextEvent event) {
             if (events.add(event)) {
-                System.out.printf("监听到 spring 应用上下文[ID : %s] 的事件 : %s \n", event.getApplicationContext().getId(),
+                System.out.printf("监听到 spring 应用上下文[ID : %s] 的事件 : %s \n",
+                        event.getApplicationContext().getId(),
                         event.getClass().getSimpleName());
             }
         }
