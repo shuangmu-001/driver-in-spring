@@ -1,9 +1,12 @@
 package org.thinking.in.spring.ioc.dependency.lookup;
 
-import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.HierarchicalBeanFactory;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.thinking.in.spring.ioc.domain.User;
 import org.thinking.in.spring.ioc.annotation.Super;
+import org.thinking.in.spring.ioc.domain.User;
 import org.thinking.in.spring.ioc.utils.ResourcesPath;
 
 import java.util.Map;
@@ -51,7 +54,10 @@ public class LookupDemo {
         lookupCollectionByType(beanFactory);
 
     }
-    // TODO 这个的意义在哪？
+
+    /**
+     *  TODO 这个的意义在哪？
+     */
     private static void lookupInLazy(BeanFactory beanFactory) {
         ObjectFactory<User> bean = beanFactory.getBean(ObjectFactory.class);
 

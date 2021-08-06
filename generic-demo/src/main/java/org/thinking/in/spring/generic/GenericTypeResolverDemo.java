@@ -31,7 +31,7 @@ public class GenericTypeResolverDemo {
         return null;
     }
 
-    public static StringList getStringList() {
+    public static StringList2 getStringList() {
         return null;
     }
 
@@ -55,5 +55,9 @@ public class GenericTypeResolverDemo {
 }
 
 class T {
+
+}
+
+class StringList2<E extends Cloneable> extends ArrayList<E> {
 
 }

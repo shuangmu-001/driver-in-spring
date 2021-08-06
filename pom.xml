@@ -22,6 +22,7 @@
         <module>conversion-demo</module>
         <module>generic-demo</module>
         <module>event-demo</module>
+        <module>spring-aop-demo</module>
     </modules>
 
     <properties>

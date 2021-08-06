@@ -38,6 +38,19 @@ public class GenericAPIDemo {
         // 泛型具体化
         Type genericSuperclass = StringList.class.getGenericSuperclass();
         System.out.println(genericSuperclass);
+
+        // 泛型边界为String
+        System.out.println("泛型边界为String Start ");
+        genericSuperclass = StringList2.class.getGenericSuperclass();
+        System.out.println(genericSuperclass);
+        parameterizedType = (ParameterizedType) genericSuperclass;
+
+        TypeVariable<Class<StringList2>>[] typeParameters1 = StringList2.class.getTypeParameters();
+
+        Type[] genericDeclaration = typeParameters1[0].getBounds();
+        System.out.println(genericDeclaration[0]);
+        System.out.println("泛型边界为String End");
+
         // 泛型不具体化
         genericSuperclass = M.class.getGenericSuperclass();
         System.out.println(genericSuperclass);
@@ -54,6 +67,7 @@ public class GenericAPIDemo {
 
         Stream.of(typeArguments)
                 .forEach(type -> System.out.println(type.getClass().getSimpleName() + " : " + type));
+
         System.out.println();
         parameterizedType = (ParameterizedType) C.class.getGenericSuperclass();
         typeArguments = parameterizedType.getActualTypeArguments();
@@ -123,5 +137,4 @@ public class GenericAPIDemo {
     class L extends N {
 
     }
-
 }

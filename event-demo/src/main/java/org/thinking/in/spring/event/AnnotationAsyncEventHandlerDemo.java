@@ -13,11 +13,12 @@ import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 /**
  * 注解驱动异步事件处理器示例
+ * {@link EnableAsync} 激活 Spring 异步特性
  *
  * @author zms
  * @date 6:05 下午 2021/2/23
  */
-@EnableAsync // 激活 Spring 异步特性
+@EnableAsync
 public class AnnotationAsyncEventHandlerDemo {
 
     public static void main(String[] args) {
@@ -32,7 +33,10 @@ public class AnnotationAsyncEventHandlerDemo {
         context.close();
     }
 
-    @Async // 同步切换成异步
+    /**
+     * {@link Async} 同步切换成异步
+     */
+    @Async
     @EventListener
     public void onEvent(MySpringEvent event) {
         System.out.printf("[线程：%s] : 监听到事件 %s\n", Thread.currentThread().getName(), event);
