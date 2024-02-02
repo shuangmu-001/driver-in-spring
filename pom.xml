@@ -26,7 +26,7 @@
     </modules>
 
     <properties>
-        <spring.version>5.2.2.RELEASE</spring.version>
+        <spring.version>5.2.22.RELEASE</spring.version>
         <servlet.version>4.0.1</servlet.version>
         <nacos-spring.version>0.3.6</nacos-spring.version>
         <tomcat.version>9.0.27</tomcat.version>
